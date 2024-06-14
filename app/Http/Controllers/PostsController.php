@@ -4,18 +4,20 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Post;
+
 class PostsController extends Controller
 {
-    //
     public function index()
     {
         $data = [];
 
         if (\Auth::check()) {
-            // 認証済みユーザを取得
+
+            // Get User
             $user = \Auth::user();
-            // ユーザの投稿の一覧を作成日時の降順で取得
-            // （後のChapterで他ユーザの投稿も取得するように変更しますが、現時点ではこのユーザの投稿のみ取得します）
+
+            // Get User's Posts in Descending Order of Create
             $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
 
             $data = [
@@ -24,7 +26,37 @@ class PostsController extends Controller
             ];
         }
 
-        // Welcomeビューでそれらを表示
+        // Show in Home View
         return view('home', $data);
+    }
+
+    public function store(Request $request)
+    {
+        // Validation
+        $request->validate([
+            'content' => 'required|max:255',
+        ]);
+
+        // Create Post with Request Value
+        $request->user()->posts()->create([
+            'content' => $request->content,
+        ]);
+
+        // Redirect
+        return back();
+    }
+
+    public function destroy($id)
+    {
+        // Get Post with Id
+        $post = Post::findOrFail($id);
+
+        // Delete the Post if the Post's User is Authorized User
+        if (\Auth::id() === $post->user_id) {
+            $post->delete();
+        }
+
+        // Redirect
+        return back();
     }
 }

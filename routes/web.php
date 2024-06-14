@@ -13,6 +13,6 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\PostsController::class, 'index']);
 
 Route::group(['middleware' => ['auth']], function () {
-    //Route::resource('users', 'UsersController', ['only' => ['index', 'show']]);
-    //Route::resource('posts', 'PostsController', ['only' => ['store', 'destroy']]);
+    Route::resource('users', 'App\Http\Controllers\UsersController', ['only' => ['index', 'show']]);
+    Route::resource('posts', 'App\Http\Controllers\PostsController', ['only' => ['store', 'destroy']]);
 });
