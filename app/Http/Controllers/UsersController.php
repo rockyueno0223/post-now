@@ -36,4 +36,52 @@ class UsersController extends Controller
             'posts' => $posts,
         ]);
     }
+
+    /**
+     * Show following users
+     *
+     * @param  $id  userId
+     * @return \Illuminate\Http\Response
+     */
+    public function followings($id)
+    {
+        // Get user with userId
+        $user = User::findOrFail($id);
+
+        // Get model counts
+        $user->loadRelationshipCounts();
+
+        // Get following users list
+        $followings = $user->followings()->paginate(10);
+
+        // Show in followings view
+        return view('users.followings', [
+            'user' => $user,
+            'users' => $followings,
+        ]);
+    }
+
+    /**
+     * Show follower users
+     *
+     * @param  $id  userId
+     * @return \Illuminate\Http\Response
+     */
+    public function followers($id)
+    {
+        // Get user with userId
+        $user = User::findOrFail($id);
+
+        // Get model counts
+        $user->loadRelationshipCounts();
+
+        // Get follower users list
+        $followers = $user->followers()->paginate(10);
+
+        // Show in followers view
+        return view('users.followers', [
+            'user' => $user,
+            'users' => $followers,
+        ]);
+    }
 }

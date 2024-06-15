@@ -10,7 +10,7 @@
                 </div>
                 <div>
                     {{-- Link to User Detail --}}
-                    <p>{!! link_to_route('users.show', 'View profile', ['user' => $user->id]) !!}</p>
+                    <a href="{{ route('users.show', ['user' => $user->id]) }}">View profile</a>
                 </div>
             </div>
         </li>

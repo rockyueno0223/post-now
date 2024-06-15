@@ -7,14 +7,10 @@
             @include('users.card')
         </aside>
         <div class="col-sm-8">
-            {{-- Tab --}}
+            {{-- Tabs --}}
             @include('users.navtabs')
-            @if (Auth::id() == $user->id)
-                {{-- Post Form --}}
-                @include('posts.form')
-            @endif
-            {{-- Posts --}}
-            @include('posts.posts')
+            {{-- Users --}}
+            @include('users.users')
         </div>
     </div>
 @endsection
