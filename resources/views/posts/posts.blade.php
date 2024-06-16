@@ -18,19 +18,23 @@
                 </div>
             </div>
             <div class="card-body">
-                {{-- Post Content --}}
-                <p class="fs-6 fw-light text-muted">
-                    {!! nl2br(e($post->content)) !!}
-                </p>
-                <div>
-                    @if (Auth::id() == $post->user_id)
-                        {{-- Delete Form --}}
-                        <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="POST">
-                            @csrf
-                            @method('DELETE')
-                            <button type="submit" class="btn btn-danger btn-sm">Delete</button>
-                        </form>
-                    @endif
+                <div class="d-flex align-items-end justify-content-between">
+                    {{-- Post Content --}}
+                    <div class="pe-2">
+                        <p class="fs-6 fw-light text-muted mb-2">
+                            {!! nl2br(e($post->content)) !!}
+                        </p>
+                    </div>
+                    <div>
+                        @if (Auth::id() == $post->user_id)
+                            {{-- Delete Form --}}
+                            <form action="{{ route('posts.destroy', ['post' => $post->id]) }}" method="POST">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        @endif
+                    </div>
                 </div>
             </div>
         </div>
