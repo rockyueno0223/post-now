@@ -4,9 +4,11 @@
             <div class="px-3 pt-3 pb-2">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
+                        {{-- Profile image --}}
                         <img style="width:40px" class="me-2 avatar-sm rounded-circle" src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                        {{-- User Name --}}
                         <div>
-                            <h5 class="card-title mb-0">Mario</h5>
+                            <h5 class="card-title mb-0">{{ $post->user->name }}</h5>
                         </div>
                     </div>
                     <div>
@@ -16,6 +18,7 @@
                 </div>
             </div>
             <div class="card-body">
+                {{-- Post Content --}}
                 <p class="fs-6 fw-light text-muted">
                     {!! nl2br(e($post->content)) !!}
                 </p>
