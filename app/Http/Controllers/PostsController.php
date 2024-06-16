@@ -17,8 +17,8 @@ class PostsController extends Controller
             // Get User
             $user = \Auth::user();
 
-            // Get User's Posts in Descending Order of Create
-            $posts = $user->posts()->orderBy('created_at', 'desc')->paginate(10);
+            // Get this User's and following User's Posts in Descending Order of Creation
+            $posts = $user->feed_posts()->orderBy('created_at', 'desc')->paginate(10);
 
             $data = [
                 'user' => $user,

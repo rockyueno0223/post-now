@@ -3,30 +3,20 @@
 @section('content')
     <div class="container">
         <div class="row justify-content-center">
-            <div class="col-md-8">
+            <aside class="col-sm-4">
+                {{-- User --}}
+                @include('users.card')
+            </aside>
+            <div class="col-sm-8">
+                {{-- Link to User detail view (delete latar if not necessary) --}}
                 <a href="{{ route('users.show', ['user' => $user->id]) }}" class="nav-link {{ Request::routeIs('users.show') ? 'active' : '' }}">
                     User detail
                     <span class="badge badge-secondary">{{ $user->posts_count }}</span>
                 </a>
-                <div class="card">
-                    <div class="card-header">{{ __('Timeline') }}</div>
-
-                    <div class="card-body">
-                        @if (session('status'))
-                            <div class="alert alert-success" role="alert">
-                                {{ session('status') }}
-                            </div>
-                        @endif
-
-                        {{-- Post Form --}}
-                        @include('posts.form')
-                        {{-- Posts --}}
-                        @include('posts.posts')
-                        {{-- @if(Auth::@check()) --}}
-                            {{-- @include('posts.posts') --}}
-                        {{-- @endif --}}
-                    </div>
-                </div>
+                {{-- Post Form --}}
+                @include('posts.form')
+                {{-- Posts --}}
+                @include('posts.posts')
             </div>
         </div>
     </div>

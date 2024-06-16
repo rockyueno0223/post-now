@@ -135,4 +135,17 @@ class User extends Authenticatable
         // Check if userId is in following list of this user
         return $this->followings()->where('follow_id', $userId)->exists();
     }
+
+    /**
+     * Filter Posts to this User and following User
+     */
+    public function feed_posts()
+    {
+        // Make Array of following UserId
+        $userIds = $this->followings()->pluck('users.id')->toArray();
+        // Add this UserId to Array
+        $userIds[] = $this->id;
+        // Filter to their Posts
+        return Post::whereIn('user_id', $userIds);
+    }
 }
