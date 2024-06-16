@@ -9,10 +9,9 @@ Route::get('/', function () {
 
 Auth::routes();
 
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/home', [App\Http\Controllers\PostsController::class, 'index']);
-
 Route::group(['middleware' => ['auth']], function () {
+    Route::get('/home', [App\Http\Controllers\PostsController::class, 'index']);
+
     Route::group(['prefix' => 'users/{id}'], function () {
         Route::post('follow', 'App\Http\Controllers\UserFollowController@store')->name('user.follow');
         Route::delete('unfollow', 'App\Http\Controllers\UserFollowController@destroy')->name('user.unfollow');
