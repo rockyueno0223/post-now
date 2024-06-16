@@ -1,19 +1,20 @@
 @if (count($users) > 0)
     <ul class="list-unstyled">
         @foreach ($users as $user)
-        <li class="media">
-            {{-- <img class="mr-2 rounded" src="{{ Gravatar::get($user->email, ['size' => 50]) }}" alt=""> --}}
-            <img src="..." alt="img">
-            <div class="media-body">
-                <div>
-                    {{ $user->name }}
-                </div>
-                <div>
-                    {{-- Link to User Detail --}}
-                    <a href="{{ route('users.show', ['user' => $user->id]) }}">View profile</a>
+            <div class="px-3 pt-3 pb-2">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center">
+                        {{-- Profile Image --}}
+                        <img style="width:40px" class="me-2 avatar-sm rounded-circle" src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                        {{-- User Name linking to User Page --}}
+                        <div class="ps-2">
+                            <a class="text-decoration-none" href="{{ route('users.show', ['user' => $user->id]) }}">
+                                <h5 class="mb-0">{{ $user->name }}</h5>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </li>
         @endforeach
     </ul>
     {{-- Pagenation --}}
