@@ -61,6 +61,54 @@
                             </div>
                         </div>
 
+                        <div class="row mb-3">
+                            <label for="avatar" class="col-md-4 col-form-label text-md-end">{{ __('Avatar') }}</label>
+
+                            <div class="col-md-6">
+                                {{-- Avatar Form --}}
+                                <div class="d-flex flex-wrap justify-content-between">
+                                    <div class="card w-50" for="dog">
+                                        <label for="dog">
+                                            <img src="{{ asset('storage/image/dog.png') }}" class="card-img-top" alt="dog">
+                                            <div class="card-body d-flex justify-content-center">
+                                                <input type="radio" name="avatar" id="dog" value="dog" class="form-check-input">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="card w-50">
+                                        <label for="cat">
+                                            <img src="{{ asset('storage/image/cat.png') }}" class="card-img-top" alt="cat">
+                                            <div class="card-body d-flex justify-content-center">
+                                                <input type="radio" name="avatar" id="cat" value="cat" class="form-check-input">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="card w-50">
+                                        <label for="pig">
+                                            <img src="{{ asset('storage/image/pig.png') }}" class="card-img-top" alt="pig">
+                                            <div class="card-body d-flex justify-content-center">
+                                                <input type="radio" name="avatar" id="pig" value="pig" class="form-check-input">
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="card w-50">
+                                        <label for="lion">
+                                            <img src="{{ asset('storage/image/lion.png') }}" class="card-img-top" alt="lion">
+                                            <div class="card-body d-flex justify-content-center">
+                                                <input type="radio" name="avatar" id="lion" value="lion" class="form-check-input">
+                                            </div>
+                                        </label>
+                                    </div>
+                                </div>
+
+                                @error('avatar')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+
                         <div class="row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">

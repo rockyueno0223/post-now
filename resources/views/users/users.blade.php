@@ -5,8 +5,10 @@
                 <div class="px-3 pt-3 pb-2">
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center">
-                            {{-- Profile Image --}}
-                            <img style="width:40px" class="me-2 avatar-sm rounded-circle" src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                            {{-- Avatar --}}
+                            <div style="width:40px" class="me-2 avatar-sm rounded-circle">
+                                @include("users.avatar")
+                            </div>
                             {{-- User Name linking to User Page --}}
                             <div class="ps-2">
                                 <a class="text-decoration-none" href="{{ route('users.show', ['user' => $user->id]) }}">

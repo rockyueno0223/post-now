@@ -4,8 +4,8 @@
             <div class="px-3 pt-3 pb-2">
                 <div class="d-flex align-items-center justify-content-between">
                     <div class="d-flex align-items-center">
-                        {{-- Profile image --}}
-                        <img style="width:40px" class="me-2 avatar-sm rounded-circle" src="https://api.dicebear.com/6.x/fun-emoji/svg?seed=Mario" alt="Mario Avatar">
+                        {{-- Avatar --}}
+                        @include("posts.postAvatar")
                         {{-- User Name --}}
                         <div>
                             <h5 class="card-title mb-0">{{ $post->user->name }}</h5>
