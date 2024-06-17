@@ -1,12 +1,12 @@
-<nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-info shadow-sm">
     <div class="container">
         {{-- Logo --}}
         @auth
-            <a class="navbar-brand" href="{{ url('/home') }}">
+            <a class="navbar-brand text-light" href="{{ url('/home') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         @else
-            <a class="navbar-brand" href="{{ url('/') }}">
+            <a class="navbar-brand text-light" href="{{ url('/') }}">
                 {{ config('app.name', 'Laravel') }}
             </a>
         @endauth
@@ -27,24 +27,24 @@
                     {{-- Login Link --}}
                     @if (Route::has('login'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                            <a class="nav-link text-light" href="{{ route('login') }}">{{ __('Login') }}</a>
                         </li>
                     @endif
 
                     {{-- Register Link --}}
                     @if (Route::has('register'))
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                            <a class="nav-link text-light" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endif
                 @else
                     {{-- Link to Users View --}}
                     <li class="nav-item">
-                        <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                        <a class="nav-link text-light" href="{{ route('users.index') }}">Users</a>
                     </li>
                     {{-- Dropdown --}}
                     <li class="nav-item dropdown">
-                        <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <a id="navbarDropdown" class="nav-link dropdown-toggle text-light" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                             {{ Auth::user()->name }}
                         </a>
 
@@ -58,7 +58,7 @@
                                 {{ __('Logout') }}
                             </a>
 
-                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                            <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none text-light">
                                 @csrf
                             </form>
                         </div>

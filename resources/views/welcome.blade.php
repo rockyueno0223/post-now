@@ -1,16 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="text-black/50">
-        <div class="relative min-h-screen flex flex-col items-center justify-start selection:bg-[#FF2D20] selection:text-white">
-            <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                <main class="mt-6">
-                    <div class="center">
-                        <div class="text-center">
-                            <h1>Post Now!</h1>
-                        </div>
-                    </div>
-                </main>
+    <div class="container-fluid">
+        <div class="d-flex justify-content-center">
+            <div style="height: 360px" class="w-75 bg-secondary rounded text-center text-light d-flex flex-column justify-content-center align-items-center">
+                <h1 class="mb-3">Post Now!</h1>
+                <a href="{{ route('register') }}" class="btn btn-lg btn-primary">Register now!</a>
             </div>
         </div>
     </div>
