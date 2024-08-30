@@ -4,6 +4,18 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    <meta property='og:type' content='website'>
+    <meta property='og:title' content="Post Now!">
+    <meta property="og:image" content="/public/storage/image/main-visual.png">
+    <meta
+        name="og:description"
+        content="Post now and share now what you are doing, thinking, and anything else. "
+    />
+    <meta
+        name="description"
+        content="Post now and share now what you are doing, thinking, and anything else. "
+    />
+
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
