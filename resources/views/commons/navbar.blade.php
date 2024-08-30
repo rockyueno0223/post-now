@@ -1,13 +1,13 @@
-<nav class="navbar navbar-expand-md navbar-light bg-info shadow-sm">
+<nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
     <div class="container">
         {{-- Logo --}}
         @auth
             <a class="navbar-brand text-light" href="{{ url('/home') }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="{{ asset('storage/image/logo.png') }}" alt="Post Now!">
             </a>
         @else
             <a class="navbar-brand text-light" href="{{ url('/') }}">
-                {{ config('app.name', 'Laravel') }}
+                <img src="{{ asset('storage/image/logo.png') }}" alt="Post Now!">
             </a>
         @endauth
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
