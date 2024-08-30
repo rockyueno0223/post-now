@@ -13,7 +13,7 @@
     <form action="{{ route('user.follow', $user->id) }}" method="POST">
         @csrf
         <div class="d-grid gap-2">
-            <button type="submit" class="btn btn-primary" type="button">Follow</button>
+            <button type="submit" class="btn btn-dark" type="button">Follow</button>
         </div>
     </form>
     @endif
