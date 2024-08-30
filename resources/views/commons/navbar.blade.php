@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md navbar-light bg-black shadow-sm">
+<nav class="navbar navbar-expand-md navbar-dark bg-black shadow-sm">
     <div class="container">
         {{-- Logo --}}
         @auth

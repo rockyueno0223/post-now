@@ -2,7 +2,7 @@
     <div class="card-header">
         <h3 class="card-title">{{ $user->name }}</h3>
     </div>
-    <div class="card-body p-5">
+    <div class="card-body p-5 d-flex justify-content-center">
         @include("users.avatar")
     </div>
 </div>

@@ -13,7 +13,8 @@
                     </div>
                     <div>
                         <span class="fs-6 fw-light text-muted"> <span class="fas fa-clock"> </span>
-                            {{ $post->created_at }} </span>
+                            {{-- {{ $post->created_at }} </span> --}}
+                            {{ \Carbon\Carbon::parse($post->created_at)->setTimezone(config('app.timezone'))->format('Y/m/d H:i') }}</span>
                     </div>
                 </div>
             </div>
